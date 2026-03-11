@@ -18,6 +18,8 @@ public class PlayerControler : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
+        posicionRespawn = transform.position;
     }
 
     private void Update()
@@ -80,4 +82,16 @@ public class PlayerControler : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    private Vector3 posicionRespawn;
+
+
+
+public void Respawn()
+{
+    transform.position = posicionRespawn;
+
+    rb.linearVelocity = Vector3.zero; 
+    rb.angularVelocity = Vector3.zero;
+}
 }
